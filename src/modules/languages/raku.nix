@@ -11,6 +11,18 @@ in
   config = lib.mkIf cfg.enable {
     packages = with pkgs; [
       rakudo
+      zef
     ];
+
+    # Fix this frequent errors:
+    # Cannot locate native library 'libreadline.so': libreadline.so and
+    # Cannot locate native library 'libssl.so': libssl.so
+    env.LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${lib.makeLibraryPath [ 
+      pkgs.readline
+      pkgs.openssl
+    ]}";
+
+    env.ZEF_FETCH_DEGREE = 4;
+    env.ZEF_TEST_DEGREE = 4;
   };
 }
