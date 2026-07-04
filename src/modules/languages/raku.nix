@@ -15,8 +15,7 @@ in
     ];
 
     # Fix this frequent errors when installing modules via zef:
-    # Cannot locate native library 'libreadline.so' and
-    # Cannot locate native library 'libssl.so'
+    # Cannot locate native library 'libreadline.so' and 'libssl.so'
     env.LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${lib.makeLibraryPath [ 
       pkgs.readline
       pkgs.openssl
