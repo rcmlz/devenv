@@ -20,8 +20,5 @@ in
       pkgs.readline
       pkgs.openssl
     ]}";
-
-    env.ZEF_FETCH_DEGREE = 4;
-    env.ZEF_TEST_DEGREE = 4;
   };
 }
